@@ -1,10 +1,10 @@
 import React from "react";
 import Sidebar from "react-sidebar";
-import logo from "../img/logo_kolor.jpg";
 import "../css/HomePage.css";
 import ReactNoSleep from "react-no-sleep";
 import airhornFile from "../sound/airhorn.mp3";
 import settingsIcon from "../img/setting-512.png";
+import SettingsPage from "../containers/SettingsPage";
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -25,16 +25,16 @@ class HomePage extends React.Component {
     return (
       <div className="HomePage">
         <Sidebar
-          sidebar={<img src={logo} className="App-logo" alt="logo" />}
+          sidebar={<SettingsPage></SettingsPage>}
           open={this.state.sidebarOpen}
           onSetOpen={this.onSetSidebarOpen}
           styles={{ sidebar: { background: "white" } }}
         >
           <img
             src={settingsIcon}
-            alt="Settings"
+            alt="SettingsIcon"
             onClick={() => this.onSetSidebarOpen(true)}
-            style={{ width: "50px", height: "50px" }}
+            style={{ width: "30px", height: "30px" }}
           />
 
           <header className="App-header">

@@ -1,0 +1,14 @@
+
+.SettingsPage {
+    color: rgb(0, 0, 0);
+  }
+
+.SettingsLogo {
+    text-align: right;
+    background-color: #ffffff;
+  }
+
+  .SettingsInput {
+    text-align: right;
+    width: 40px
+  }

@@ -4,12 +4,15 @@
   "private": true,
   "homepage": "https://przemid.github.io/gld",
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "gh-pages": "^2.1.1",
     "react": "^16.9.0",
+    "react-bootstrap": "^1.0.0-beta.12",
     "react-dom": "^16.9.0",
     "react-no-sleep": "^1.0.2",
     "react-scripts": "3.1.1",
-    "react-sidebar": "^3.0.2"
+    "react-sidebar": "^3.0.2",
+    "react-toggle-button": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -32,6 +35,11 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "modulePathIgnorePatterns": [
+      "node_modules"
     ]
   }
 }

@@ -4,18 +4,17 @@
 
 body {
   background-image: url("../img/logo_male.jpg");
-  background-color: #cccccc;
+  background-color: #000000;
 }
 
+
 .App-header {
-  display: flex;
-  flex-direction: column;
+  min-height: 100vh;
   align-items: center;
   justify-content: center;
 }
 
 .G-logo {
-  color: white;
+  color: rgb(196, 196, 196);
   text-align: right;
-  vertical-align: bottom;
 }
