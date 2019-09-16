@@ -6,13 +6,29 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ToggleButton from 'react-toggle-button'
+import FullScreen  from 'react-request-fullscreen'
 
 class SettingsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sygnalCoMin: true
+      sygnalCoMin: true,
+      isFullScreen: false
     };
+  }
+
+  onFullScreenChange (isFullScreen) {
+    this.setState({
+      isFullScreen
+    })
+  }
+ 
+  requestOrExitFullScreen () {
+    this.fullScreenRef.fullScreen()
+  }
+
+  requestOrExitFullScreenByElement () {
+    this.elFullScreenRef.fullScreen(this.elRef)
   }
 
   componentDidMount() {
@@ -20,13 +36,14 @@ class SettingsPage extends React.Component {
   }
 
   render() {
-
+    const { isFullScreen } = this.state
     return (
       <div className="SettingsPage">
         
         <Container>
           <Row>
-          <img src={logo} alt="logo" />
+            <Col><img src={logo} alt="logo" /></Col>
+          
           </Row>
           <Row>
             <Col>Ilość rund:</Col>
@@ -51,6 +68,20 @@ class SettingsPage extends React.Component {
                   sygnalCoMin: !value,
                 })
               }} />
+          </Row>
+          <Row>
+              <Col>
+              <br/>
+              <FullScreen ref={ref => { this.fullScreenRef = ref }} onFullScreenChange={this.onFullScreenChange.bind(this)}>
+          <div
+            className='rq'
+            onClick={this.requestOrExitFullScreen.bind(this)}
+          >
+            {!isFullScreen ? 'FullScreen' : 'Exit FullScreen'}
+          </div>
+        </FullScreen></Col>
+
+          
           </Row>
         </Container>
       </div>
