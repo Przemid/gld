@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "44b9be271a0a2ba2c054b1073690875e",
+    "revision": "1d8bd3b6e9f7dce6991352400300b22f",
     "url": "/gld/index.html"
   },
   {
-    "revision": "31ae732e5e787464bb4c",
+    "revision": "8382684f69ce52274443",
     "url": "/gld/static/css/main.2cce8147.chunk.css"
   },
   {
@@ -12,15 +12,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/gld/static/js/2.30a8735d.chunk.js"
   },
   {
-    "revision": "31ae732e5e787464bb4c",
-    "url": "/gld/static/js/main.bb6843d1.chunk.js"
+    "revision": "8382684f69ce52274443",
+    "url": "/gld/static/js/main.2e310dcb.chunk.js"
   },
   {
     "revision": "e5323a6b14e761804184",
     "url": "/gld/static/js/runtime~main.82d655d1.js"
   },
   {
-    "revision": "5d5d9eefa31e5e13a6610d9fa7a283bb",
-    "url": "/gld/static/media/logo.5d5d9eef.svg"
+    "revision": "4f9f9b45d96b6366d9317129eec4fec4",
+    "url": "/gld/static/media/logo_male.4f9f9b45.jpg"
   }
 ]);
