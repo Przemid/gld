@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/Clock.css";
 import airhornFile from "../sound/airhorn.mp3";
+import index from "../index"
 
 class Clock extends React.Component {
   constructor(props) {
@@ -17,10 +18,12 @@ class Clock extends React.Component {
 
   render() {
     const audio = new Audio(airhornFile);
+    const minutes = "00";
+    const seconds = "00";
 
     return (
-      <div className="Clock">
-        
+      <div className="ClockNumbers ClockNumbersBlue">
+        {minutes}:{seconds}
       </div>
     );
   }

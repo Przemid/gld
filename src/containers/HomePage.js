@@ -5,6 +5,7 @@ import ReactNoSleep from "react-no-sleep";
 import airhornFile from "../sound/airhorn.mp3";
 import settingsIcon from "../img/setting-512.png";
 import SettingsPage from "../containers/SettingsPage";
+import Clock from "../containers/Clock";
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -38,6 +39,7 @@ class HomePage extends React.Component {
           />
 
           <header className="App-header">
+            <Clock></Clock>
             <p className="G-logo" onClick={() => audio.play()}>
               Powered by <b>Goliat</b>
             </p>

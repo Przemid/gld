@@ -4,16 +4,22 @@
   "private": true,
   "homepage": "https://przemid.github.io/gld",
   "dependencies": {
+    "@material-ui/core": "^4.4.2",
+    "@material-ui/icons": "^4.4.1",
     "bootstrap": "^4.3.1",
     "gh-pages": "^2.1.1",
+    "lodash": "^4.17.15",
     "react": "^16.9.0",
     "react-bootstrap": "^1.0.0-beta.12",
     "react-dom": "^16.9.0",
     "react-no-sleep": "^1.0.2",
+    "react-redux": "^7.1.1",
     "react-request-fullscreen": "^1.1.2",
     "react-scripts": "3.1.1",
     "react-sidebar": "^3.0.2",
-    "react-toggle-button": "^2.2.0"
+    "react-toggle-button": "^2.2.0",
+    "redux": "^4.0.4",
+    "redux-logger": "^3.0.6"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -42,5 +48,8 @@
     "modulePathIgnorePatterns": [
       "node_modules"
     ]
+  },
+  "devDependencies": {
+    "typescript": "^3.7.0-dev.20190917"
   }
 }

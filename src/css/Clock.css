@@ -1,0 +1,10 @@
+.ClockNumbers {
+  display: flex;
+  font-size: 65vmin;
+  font-weight: 650;
+  height: 100vh;
+}
+
+.ClockNumbersBlue{
+    color: rgb(0, 140, 255)
+}
