@@ -22,7 +22,6 @@ class HomePage extends React.Component {
 
   render() {
     const audio = new Audio(airhornFile);
-
     return (
       <div className="HomePage">
         <Sidebar
@@ -39,7 +38,7 @@ class HomePage extends React.Component {
           />
 
           <header className="App-header">
-            <Clock></Clock>
+            <Clock rundy={this.state.rundy}></Clock>
             <p className="G-logo" onClick={() => audio.play()}>
               Powered by <b>Goliat</b>
             </p>

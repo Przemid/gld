@@ -32,7 +32,7 @@ class SettingsPage extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ sygnalCoMin: true });
+    this.setState({ sygnalCoMin: true});
   }
 
   render() {
@@ -47,7 +47,7 @@ class SettingsPage extends React.Component {
           </Row>
           <Row>
             <Col>Ilość rund:</Col>
-            <input type="number" className="SettingsInput"></input>
+            <input type="number" className="SettingsInput" name="rundy"></input>
           </Row>
           <Row>
             <Col>Czas w minutach:</Col>
@@ -65,7 +65,7 @@ class SettingsPage extends React.Component {
               value= {this.state.sygnalCoMin}
               onToggle={(value) => {
                 this.setState({
-                  sygnalCoMin: !value,
+                  sygnalCoMin: !value
                 })
               }} />
           </Row>
