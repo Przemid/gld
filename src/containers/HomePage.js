@@ -28,7 +28,7 @@ class HomePage extends React.Component {
           sidebar={<SettingsPage></SettingsPage>}
           open={this.state.sidebarOpen}
           onSetOpen={this.onSetSidebarOpen}
-          styles={{ sidebar: { background: "white" } }}
+          styles={{ sidebar: { background: "black" } }}
         >
           <img
             src={settingsIcon}
