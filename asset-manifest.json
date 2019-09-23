@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/gld/static/css/main.da689b56.chunk.css",
+    "main.css": "/gld/static/css/main.8ba41b39.chunk.css",
     "main.js": "/gld/static/js/main.f40005c0.chunk.js",
     "main.js.map": "/gld/static/js/main.f40005c0.chunk.js.map",
     "runtime~main.js": "/gld/static/js/runtime~main.82d655d1.js",
@@ -9,10 +9,10 @@
     "static/js/2.c9d6db60.chunk.js": "/gld/static/js/2.c9d6db60.chunk.js",
     "static/js/2.c9d6db60.chunk.js.map": "/gld/static/js/2.c9d6db60.chunk.js.map",
     "index.html": "/gld/index.html",
-    "precache-manifest.4e09c952507297550117daae39c97854.js": "/gld/precache-manifest.4e09c952507297550117daae39c97854.js",
+    "precache-manifest.15a6ba03a9e854c4f18a934b7a8b7880.js": "/gld/precache-manifest.15a6ba03a9e854c4f18a934b7a8b7880.js",
     "service-worker.js": "/gld/service-worker.js",
     "static/css/2.266e55a5.chunk.css.map": "/gld/static/css/2.266e55a5.chunk.css.map",
-    "static/css/main.da689b56.chunk.css.map": "/gld/static/css/main.da689b56.chunk.css.map",
+    "static/css/main.8ba41b39.chunk.css.map": "/gld/static/css/main.8ba41b39.chunk.css.map",
     "static/media/airhorn.mp3": "/gld/static/media/airhorn.95897491.mp3",
     "static/media/HomePage.css": "/gld/static/media/logo_tlo.2a8f945d.jpg",
     "static/media/setting-512.png": "/gld/static/media/setting-512.3f40f759.png"
