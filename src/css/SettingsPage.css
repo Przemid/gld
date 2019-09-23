@@ -1,10 +1,11 @@
 .SettingsPage {
-  color: rgb(0, 0, 0);
+  color: rgb(185, 185, 185);
+  background-color: #000000;
 }
 
 .SettingsLogo {
   text-align: right;
-  background-color: #ffffff;
+  
 }
 
 .SettingsInput {

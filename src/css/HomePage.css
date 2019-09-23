@@ -3,10 +3,9 @@
 }
 
 body {
-  background-image: url("../img/logo_male.jpg");
-  background-color: #000000;
+  background-image: url("../img/logo_tlo.jpg");
+  background-size: cover;
 }
-
 
 .App-header {
   display: flex;
