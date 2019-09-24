@@ -37,7 +37,7 @@ class HomePage extends React.Component {
             src={settingsIcon}
             alt="SettingsIcon"
             onClick={() => this.onSetSidebarOpen(true)}
-            style={{ width: "30px", height: "30px" }}
+            style={{ width: "40px", height: "40px" }}
           />
 
           <header className="App-header">

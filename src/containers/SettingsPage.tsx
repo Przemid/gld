@@ -5,7 +5,6 @@ import "../css/SettingsPage.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-// import ToggleButton from "react-toggle-button";
 import { connect } from "react-redux";
 import { ustawMinuty, ustawSekundy } from "../actions/settingsActions";
 import { SettingsState } from "../reducers/settingsReducer";
@@ -114,6 +113,31 @@ export class SettingsPage extends React.Component<Props, LocalProps> {
         key: "5",
         text: "5",
         value: "5"
+      },
+      {
+        key: "6",
+        text: "6",
+        value: "6"
+      },
+      {
+        key: "7",
+        text: "7",
+        value: "7"
+      },
+      {
+        key: "8",
+        text: "8",
+        value: "8"
+      },
+      {
+        key: "9",
+        text: "9",
+        value: "9"
+      },
+      {
+        key: "10",
+        text: "10",
+        value: "10"
       }
     ];
 
