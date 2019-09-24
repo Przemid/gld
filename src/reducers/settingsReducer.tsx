@@ -3,7 +3,7 @@ import { Action } from "../models";
 import * as actionTypes from "../actions/actionTypes";
 
 export interface SettingsState {
-  minuty: number;
+  minuty: Number;
   sekundy: number;
 }
 
