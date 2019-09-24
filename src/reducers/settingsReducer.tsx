@@ -8,8 +8,8 @@ export interface SettingsState {
 }
 
 export const initialState: SettingsState = {
-  minuty: 3,
-  sekundy: 45
+  minuty: 0,
+  sekundy: 0
 };
 
 export default function reducer(
@@ -24,10 +24,11 @@ export default function reducer(
         minuty: action.payload
       };
 
-    case actionTypes.SETTINGS_GET_MINUTY:
+// SETTINGS_USTAW_SEKUNDY
+    case actionTypes.SETTINGS_USTAW_SEKUNDY:
       return {
         ...state,
-        minuty: action.payload
+        sekundy: action.payload
       };
 
     default:

@@ -52,7 +52,7 @@ class HomePage extends React.Component {
               </Row>
             </Container>
 
-            <ReactNoSleep>{({ isOn, enable, disable }) => enable}</ReactNoSleep>
+            {/* <ReactNoSleep>{({ isOn, enable, disable }) => enable()}</ReactNoSleep> */}
           </header>
         </Sidebar>
       </div>

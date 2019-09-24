@@ -7,3 +7,10 @@ export function ustawMinuty(payload: number): Action {
 		payload
 	};
 }
+
+export function ustawSekundy(payload: number): Action {
+	return {
+		type: actionTypes.SETTINGS_USTAW_SEKUNDY,
+		payload
+	};
+}
