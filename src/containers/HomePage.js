@@ -6,6 +6,9 @@ import airhornFile from "../sound/airhorn.mp3";
 import settingsIcon from "../img/setting-512.png";
 import SettingsPage from "../containers/SettingsPage";
 import Clock from "../containers/Clock";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -38,14 +41,18 @@ class HomePage extends React.Component {
           />
 
           <header className="App-header">
-            <Clock rundy={this.state.rundy}></Clock>
-            <p className="G-logo" onClick={() => audio.play()}>
-              Powered by <b>Goliat</b>
-            </p>
+            <Container>
+              <Clock></Clock>
+              <Row>
+                <Col className="App-footer">
+                  <p className="G-logo" onClick={() => audio.play()}>
+                    Powered by <b>Goliat</b>
+                  </p>
+                </Col>
+              </Row>
+            </Container>
 
-            <ReactNoSleep>
-              {({ isOn, enable, disable }) => (isOn = true)}
-            </ReactNoSleep>
+            <ReactNoSleep>{({ isOn, enable, disable }) => enable}</ReactNoSleep>
           </header>
         </Sidebar>
       </div>
