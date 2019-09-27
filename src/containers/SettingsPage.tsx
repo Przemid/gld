@@ -6,7 +6,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { connect } from "react-redux";
-import { ustawMinuty, ustawSekundy, ustawRundy, ustawPrzerwa, ustawCooldown, ustawSygnalCoMinute, ustawSoundPack } from "../actions/settingsActions";
+import { ustawMinuty, ustawSekundy, ustawRundy, ustawPrzerwa, ustawCooldown, ustawSygnalCoMinute, ustawSoundPack, ustawCzasDoStartu } from "../actions/settingsActions";
 import { SettingsState } from "../reducers/settingsReducer";
 import { compose } from "recompose";
 import { Dropdown } from "semantic-ui-react";
@@ -28,6 +28,7 @@ interface DispatchProps {
   ustawCooldown: typeof ustawCooldown;
   ustawSygnalCoMinute: typeof ustawSygnalCoMinute;
   ustawSoundPack: typeof ustawSoundPack;
+  ustawCzasDoStartu: typeof ustawCzasDoStartu;
 }
 
 type Props = ComponentProps & LocalProps & StateProps & DispatchProps;
@@ -86,10 +87,16 @@ export class SettingsPage extends React.Component<Props, LocalProps> {
       ustawSoundPack(Number(data.value));
     }
   };
-
+  
+  public ustawCzasDoStartu = (e: any, data: any) => {
+    const { ustawCzasDoStartu } = this.props;
+    if (ustawCzasDoStartu) {
+      ustawCzasDoStartu(Number(data.value));
+    }
+  };
+  
 
   render() {
-    const { minuty } = this.props;
     const friendOptions = [
       {
         key: "Horn",
@@ -198,6 +205,39 @@ export class SettingsPage extends React.Component<Props, LocalProps> {
         value: 0
       },
       {
+        key: "5",
+        text: "5",
+        value: 5
+      },
+      {
+        key: "10",
+        text: "10",
+        value: 10
+      },
+      {
+        key: "15",
+        text: "15",
+        value: 15
+      },
+      {
+        key: "30",
+        text: "30",
+        value: 30
+      },
+      {
+        key: "45",
+        text: "45",
+        value: 45
+      },
+    ];
+
+    const cooldownOptions = [
+      {
+        key: "0",
+        text: "0",
+        value: 0
+      },
+      {
         key: "15",
         text: "15",
         value: 15
@@ -247,6 +287,7 @@ export class SettingsPage extends React.Component<Props, LocalProps> {
               fluid
               selection
               options={roundOptions}
+              onChange={this.ustawRundy}
               defaultValue={3}
             />
           </Row>
@@ -278,9 +319,20 @@ export class SettingsPage extends React.Component<Props, LocalProps> {
               placeholder="Wybierz przerwę"
               fluid
               selection
-              options={secondsOptions}
+              options={cooldownOptions}
               onChange={this.ustawPrzerwa}
               defaultValue={60}
+            />
+          </Row>
+          <Row>Czas do startu:</Row>
+          <Row>
+            <Dropdown
+              placeholder="Wybierz czas przygotowania"
+              fluid
+              selection
+              options={secondsOptions}
+              onChange={this.ustawCzasDoStartu}
+              defaultValue={10}
             />
           </Row>
           <Row>Cooldown:</Row>
@@ -289,7 +341,7 @@ export class SettingsPage extends React.Component<Props, LocalProps> {
               placeholder="Wybierz cooldown"
               fluid
               selection
-              options={secondsOptions}
+              options={cooldownOptions}
               onChange={this.ustawCooldown}
               defaultValue={60}
             />
@@ -338,7 +390,8 @@ const container = compose<Props, ComponentProps>(
       ustawPrzerwa,
       ustawCooldown,
       ustawSygnalCoMinute,
-      ustawSoundPack
+      ustawSoundPack,
+      ustawCzasDoStartu
     }
   )
 )(SettingsPage);

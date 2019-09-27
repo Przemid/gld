@@ -15,6 +15,7 @@ export interface SettingsState {
   clockColorGreen: number;
   isCountdown: boolean;
   isCooldown: boolean;
+  czasDoStartu: number;
 }
 
 export const initialState: SettingsState = {
@@ -29,7 +30,8 @@ export const initialState: SettingsState = {
   clockColorBlue: 255,
   clockColorGreen: 255,
   isCountdown: false,
-  isCooldown: false
+  isCooldown: false,
+  czasDoStartu: 10
 };
 
 export default function reducer(
@@ -37,6 +39,11 @@ export default function reducer(
   action: Action
 ): SettingsState {
   switch (action.type) {
+    case actionTypes.SETTINGS_USTAW_RUNDY:
+      return {
+        ...state,
+        rundy: action.payload
+      };
     case actionTypes.SETTINGS_USTAW_MINUTY:
       return {
         ...state,
@@ -100,6 +107,12 @@ export default function reducer(
       return {
         ...state,
         isCooldown: action.payload
+      };
+
+      case actionTypes.SETTINGS_USTAW_CZASDOSTARTU:
+      return {
+        ...state,
+        czasDoStartu: action.payload
       };
 
     default:

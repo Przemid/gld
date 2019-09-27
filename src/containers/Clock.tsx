@@ -46,7 +46,8 @@ export class Clock extends React.Component<Props, LocalProps> {
     return (
       <Container>
         <div className="ClockNumbers ClockNumbersBlue">
-          {minuty}:{sekundy}
+          {/* {minuty}:{sekundy} */}
+          {moment().format('MMMM Do YYYY, h:mm:ss a')}
         </div>
         <Row>
           <Col className="ClockColumnCentered">

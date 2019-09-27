@@ -74,3 +74,10 @@ export function ustawisCooldown(payload: boolean): Action {
 		payload
 	};
 }
+
+export function ustawCzasDoStartu(payload: number): Action {
+	return {
+		type: actionTypes.SETTINGS_USTAW_CZASDOSTARTU,
+		payload
+	};
+}
