@@ -14,6 +14,7 @@ export interface SettingsState {
   clockColorBlue: number;
   clockColorGreen: number;
   isCountdown: boolean;
+  isCooldown: boolean;
 }
 
 export const initialState: SettingsState = {
@@ -27,7 +28,8 @@ export const initialState: SettingsState = {
   clockColorRed: 255,
   clockColorBlue: 255,
   clockColorGreen: 255,
-  isCountdown: false
+  isCountdown: false,
+  isCooldown: false
 };
 
 export default function reducer(
@@ -35,18 +37,69 @@ export default function reducer(
   action: Action
 ): SettingsState {
   switch (action.type) {
-    // SETTINGS_USTAW_MINUTY
     case actionTypes.SETTINGS_USTAW_MINUTY:
       return {
         ...state,
         minuty: action.payload
       };
-
-// SETTINGS_USTAW_SEKUNDY
     case actionTypes.SETTINGS_USTAW_SEKUNDY:
       return {
         ...state,
         sekundy: action.payload
+      };
+
+      case actionTypes.SETTINGS_USTAW_PRZERWA:
+      return {
+        ...state,
+        przerwa: action.payload
+      };
+
+      case actionTypes.SETTINGS_USTAW_COLDOWN:
+      return {
+        ...state,
+        cooldown: action.payload
+      };
+
+      case actionTypes.SETTINGS_USTAW_SYGNALCOMINUTE:
+      return {
+        ...state,
+        sygnalCoMinute: action.payload
+      };
+
+      case actionTypes.SETTINGS_USTAW_SOUNDPACK:
+      return {
+        ...state,
+        soundPack: action.payload
+      };
+
+      case actionTypes.SETTINGS_USTAW_CLOCKRED:
+      return {
+        ...state,
+        clockColorRed: action.payload
+      };
+
+      case actionTypes.SETTINGS_USTAW_CLOCKGREEN:
+      return {
+        ...state,
+        clockColorGreen: action.payload
+      };
+
+      case actionTypes.SETTINGS_USTAW_CLOCKBLUE:
+      return {
+        ...state,
+        clockColorBlue: action.payload
+      };
+
+      case actionTypes.SETTINGS_USTAW_ISCOUNTDOWN:
+      return {
+        ...state,
+        isCountdown: action.payload
+      };
+
+      case actionTypes.SETTINGS_USTAW_ISCOOLDOWN:
+      return {
+        ...state,
+        isCooldown: action.payload
       };
 
     default:

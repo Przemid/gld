@@ -6,6 +6,7 @@ import airhornFile from "../sound/airhorn.mp3";
 import settingsIcon from "../img/setting-512.png";
 import SettingsPage from "../containers/SettingsPage";
 import Clock from "../containers/Clock";
+import Summary from "../containers/Summary";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -42,6 +43,7 @@ class HomePage extends React.Component {
 
           <header className="App-header">
             <Container>
+              <Summary></Summary>
               <Clock></Clock>
               <Row>
                 <Col className="App-footer">

@@ -68,3 +68,9 @@ export function ustawisCountDown(payload: boolean): Action {
 		payload
 	};
 }
+export function ustawisCooldown(payload: boolean): Action {
+	return {
+		type: actionTypes.SETTINGS_USTAW_ISCOOLDOWN,
+		payload
+	};
+}
