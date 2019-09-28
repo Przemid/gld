@@ -8,6 +8,7 @@ import Container from "react-bootstrap/Container";
 import { Button, Segment } from "semantic-ui-react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import moment from "moment";
 
 interface ComponentProps {}
 
@@ -43,18 +44,22 @@ export class Clock extends React.Component<Props, LocalProps> {
     const seconds = "00";
     const { minuty, sekundy } = this.props;
 
+    const date = new Date("1995-12-17T03:" + minuty + ":" + sekundy);
+
     return (
       <Container>
         <div className="ClockNumbers ClockNumbersBlue">
           {/* {minuty}:{sekundy} */}
-          {moment().format('MMMM Do YYYY, h:mm:ss a')}
+          {moment().format("mm:ss")}
         </div>
         <Row>
           <Col className="ClockColumnCentered">
             <Button inverted>Start</Button>
           </Col>
           <Col className="ClockColumnCentered">
-            <Button disabled inverted>Reset</Button>
+            <Button disabled inverted>
+              Reset
+            </Button>
           </Col>
         </Row>
       </Container>

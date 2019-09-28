@@ -6,7 +6,16 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { connect } from "react-redux";
-import { ustawMinuty, ustawSekundy, ustawRundy, ustawPrzerwa, ustawCooldown, ustawSygnalCoMinute, ustawSoundPack, ustawCzasDoStartu } from "../actions/settingsActions";
+import {
+  ustawMinuty,
+  ustawSekundy,
+  ustawRundy,
+  ustawPrzerwa,
+  ustawCooldown,
+  ustawSygnalCoMinute,
+  ustawSoundPack,
+  ustawCzasDoStartu
+} from "../actions/settingsActions";
 import { SettingsState } from "../reducers/settingsReducer";
 import { compose } from "recompose";
 import { Dropdown } from "semantic-ui-react";
@@ -87,14 +96,13 @@ export class SettingsPage extends React.Component<Props, LocalProps> {
       ustawSoundPack(Number(data.value));
     }
   };
-  
+
   public ustawCzasDoStartu = (e: any, data: any) => {
     const { ustawCzasDoStartu } = this.props;
     if (ustawCzasDoStartu) {
       ustawCzasDoStartu(Number(data.value));
     }
   };
-  
 
   render() {
     const friendOptions = [
@@ -115,7 +123,7 @@ export class SettingsPage extends React.Component<Props, LocalProps> {
           avatar: true,
           src: "https://react.semantic-ui.com/images/avatar/small/elliot.jpg"
         }
-      },
+      }
       // {
       //   key: "Marcin W",
       //   text: "Marcin W",
@@ -228,7 +236,7 @@ export class SettingsPage extends React.Component<Props, LocalProps> {
         key: "45",
         text: "45",
         value: 45
-      },
+      }
     ];
 
     const cooldownOptions = [
