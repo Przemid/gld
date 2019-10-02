@@ -1,7 +1,6 @@
 import React from "react";
 import Sidebar from "react-sidebar";
 import "../css/HomePage.css";
-import ReactNoSleep from "react-no-sleep";
 import airhornFile from "../sound/airhorn.mp3";
 import settingsIcon from "../img/setting-512.png";
 import SettingsPage from "../containers/SettingsPage";
@@ -52,9 +51,7 @@ class HomePage extends React.Component {
                   </p>
                 </Col>
               </Row>
-            </Container>
-
-            {/* <ReactNoSleep>{({ isOn, enable, disable }) => enable()}</ReactNoSleep> */}
+            </Container>           
           </header>
         </Sidebar>
       </div>

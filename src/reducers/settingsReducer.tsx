@@ -55,61 +55,61 @@ export default function reducer(
         sekundy: action.payload
       };
 
-      case actionTypes.SETTINGS_USTAW_PRZERWA:
+    case actionTypes.SETTINGS_USTAW_PRZERWA:
       return {
         ...state,
         przerwa: action.payload
       };
 
-      case actionTypes.SETTINGS_USTAW_COLDOWN:
+    case actionTypes.SETTINGS_USTAW_COLDOWN:
       return {
         ...state,
         cooldown: action.payload
       };
 
-      case actionTypes.SETTINGS_USTAW_SYGNALCOMINUTE:
+    case actionTypes.SETTINGS_USTAW_SYGNALCOMINUTE:
       return {
         ...state,
         sygnalCoMinute: action.payload
       };
 
-      case actionTypes.SETTINGS_USTAW_SOUNDPACK:
+    case actionTypes.SETTINGS_USTAW_SOUNDPACK:
       return {
         ...state,
         soundPack: action.payload
       };
 
-      case actionTypes.SETTINGS_USTAW_CLOCKRED:
+    case actionTypes.SETTINGS_USTAW_CLOCKRED:
       return {
         ...state,
         clockColorRed: action.payload
       };
 
-      case actionTypes.SETTINGS_USTAW_CLOCKGREEN:
+    case actionTypes.SETTINGS_USTAW_CLOCKGREEN:
       return {
         ...state,
         clockColorGreen: action.payload
       };
 
-      case actionTypes.SETTINGS_USTAW_CLOCKBLUE:
+    case actionTypes.SETTINGS_USTAW_CLOCKBLUE:
       return {
         ...state,
         clockColorBlue: action.payload
       };
 
-      case actionTypes.SETTINGS_USTAW_ISCOUNTDOWN:
+    case actionTypes.SETTINGS_USTAW_ISCOUNTDOWN:
       return {
         ...state,
         isCountdown: action.payload
       };
 
-      case actionTypes.SETTINGS_USTAW_ISCOOLDOWN:
+    case actionTypes.SETTINGS_USTAW_ISCOOLDOWN:
       return {
         ...state,
         isCooldown: action.payload
       };
 
-      case actionTypes.SETTINGS_USTAW_CZASDOSTARTU:
+    case actionTypes.SETTINGS_USTAW_CZASDOSTARTU:
       return {
         ...state,
         czasDoStartu: action.payload

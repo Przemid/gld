@@ -21,29 +21,36 @@ interface StateProps {
   czasDoStartu: number;
 }
 
-interface DispatchProps {
-  
-}
+interface DispatchProps {}
 
 type Props = ComponentProps & LocalProps & StateProps & DispatchProps;
 
 export class Summary extends React.Component<Props, LocalProps> {
-  constructor(props: Props) {
-    super(props);
-  
-  }
-
   render() {
-    let path = "../src/sound/airhorn.mp3";
-    const audio = new Audio(path);
-    const seconds = "00";
-    const { minuty, sekundy, rundy, przerwa, cooldown, sygnalCoMinute, czasDoStartu } = this.props;
+    const {
+      minuty,
+      sekundy,
+      rundy,
+      przerwa,
+      cooldown,
+      sygnalCoMinute,
+      czasDoStartu
+    } = this.props;
 
     return (
       <Container>
         <Row>
           <Col className="ClockColumnCentered">
-            <p>Rundy:{rundy} | Czas:{minuty}:{sekundy} | Przerwa: {przerwa}s | Cooldown: {cooldown}s | Sygnał co minutę: {sygnalCoMinute ? "Tak" : "Nie"} | Czas do startu: {czasDoStartu}s</p>
+            <p>
+              Rundy:{rundy} | Czas:{minuty}:{sekundy < 10 ? `0${sekundy}` : sekundy} | Przerwa: {przerwa}s |
+              Cooldown: {cooldown}s
+            </p>
+          </Col>
+          <Col>
+            <p>
+              Sygnał co minutę: {sygnalCoMinute ? "Tak" : "Nie"} | Czas do
+              startu: {czasDoStartu}s
+            </p>
           </Col>
         </Row>
       </Container>
@@ -56,16 +63,14 @@ const container = compose<Props, ComponentProps>(
       return {
         minuty: _state.minuty,
         sekundy: _state.sekundy,
-        rundy: _state.rundy,    
+        rundy: _state.rundy,
         przerwa: _state.przerwa,
         cooldown: _state.cooldown,
         sygnalCoMinute: _state.sygnalCoMinute,
         czasDoStartu: _state.czasDoStartu
       };
     },
-    {
-      
-    }
+    {}
   )
 )(Summary);
 

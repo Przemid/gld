@@ -8,11 +8,15 @@ import Container from "react-bootstrap/Container";
 import { Button, Segment } from "semantic-ui-react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import moment from "moment";
+import ReactNoSleep from "react-no-sleep";
 
 interface ComponentProps {}
 
-interface LocalProps {}
+interface LocalProps {
+  minutyL: number;
+  sekundyL: number;
+  timeIsGrabbed: boolean;
+}
 
 interface StateProps {
   minuty: number;
@@ -29,32 +33,43 @@ export class Clock extends React.Component<Props, LocalProps> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      sidebarOpen: false
+      minutyL: 3,
+      sekundyL: 0,
+      timeIsGrabbed: false
     };
-    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
   }
 
-  onSetSidebarOpen(open: boolean) {
-    this.setState({ sidebarOpen: open });
+  componentDidMount() {
+    const { minuty, sekundy } = this.props;
+    const { minutyL, sekundyL } = this.state;
+    if (minutyL != minuty || sekundyL != sekundy) {
+      this.setState({
+        minutyL: minuty,
+        sekundyL: sekundy
+      });
+    }
   }
 
   render() {
     let path = "../src/sound/airhorn.mp3";
     const audio = new Audio(path);
     const seconds = "00";
-    const { minuty, sekundy } = this.props;
-
-    const date = new Date("1995-12-17T03:" + minuty + ":" + sekundy);
+    const { minutyL, sekundyL } = this.state;
 
     return (
       <Container>
         <div className="ClockNumbers ClockNumbersBlue">
-          {/* {minuty}:{sekundy} */}
-          {moment().format("mm:ss")}
+          {minutyL}:{sekundyL < 10 ? `0${sekundyL}` : sekundyL}
         </div>
         <Row>
           <Col className="ClockColumnCentered">
-            <Button inverted>Start</Button>
+            <ReactNoSleep>
+              {({ isOn, enable, disable }) => (
+                <Button onClick={isOn ? disable : enable} inverted>
+                  Start
+                </Button>
+              )}
+            </ReactNoSleep>
           </Col>
           <Col className="ClockColumnCentered">
             <Button disabled inverted>

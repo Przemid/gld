@@ -124,33 +124,6 @@ export class SettingsPage extends React.Component<Props, LocalProps> {
           src: "https://react.semantic-ui.com/images/avatar/small/elliot.jpg"
         }
       }
-      // {
-      //   key: "Marcin W",
-      //   text: "Marcin W",
-      //   value: "Marcin W",
-      //   image: {
-      //     avatar: true,
-      //     src: "https://react.semantic-ui.com/images/avatar/small/jenny.jpg"
-      //   }
-      // },
-      // {
-      //   key: "Bronek",
-      //   text: "Bronek",
-      //   value: "Bronek",
-      //   image: {
-      //     avatar: true,
-      //     src: "https://react.semantic-ui.com/images/avatar/small/stevie.jpg"
-      //   }
-      // },
-      // {
-      //   key: "Marcin J",
-      //   text: "Marcin J",
-      //   value: "Marcin J",
-      //   image: {
-      //     avatar: true,
-      //     src: "https://react.semantic-ui.com/images/avatar/small/christian.jpg"
-      //   }
-      // }
     ];
 
     const roundOptions = [
