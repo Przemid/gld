@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/Clock.css";
 import { connect } from "react-redux";
-import { ustawMinuty } from "../actions/settingsActions";
+import { ustawisCountDown } from "../actions/settingsActions";
 import { SettingsState } from "../reducers/settingsReducer";
 import { compose } from "recompose";
 import Container from "react-bootstrap/Container";
@@ -16,15 +16,18 @@ interface LocalProps {
   minutyL: number;
   sekundyL: number;
   timeIsGrabbed: boolean;
+  tick: number;
 }
 
 interface StateProps {
   minuty: number;
   sekundy: number;
+  isCooldown: boolean;
+  isCountdown: boolean;
 }
 
 interface DispatchProps {
-  ustawMinuty: typeof ustawMinuty;
+  ustawisCountDown: typeof ustawisCountDown;
 }
 
 type Props = ComponentProps & LocalProps & StateProps & DispatchProps;
@@ -34,45 +37,135 @@ export class Clock extends React.Component<Props, LocalProps> {
     super(props);
     this.state = {
       minutyL: 3,
-      sekundyL: 0,
-      timeIsGrabbed: false
+      sekundyL: 10,
+      timeIsGrabbed: false,
+      tick: 0
     };
   }
 
   componentDidMount() {
-    const { minuty, sekundy } = this.props;
+    const { minuty, sekundy, isCountdown } = this.props;
     const { minutyL, sekundyL } = this.state;
-    if (minutyL != minuty || sekundyL != sekundy) {
-      this.setState({
-        minutyL: minuty,
-        sekundyL: sekundy
-      });
+    if (!isCountdown) {
+      if (minutyL != minuty || sekundyL != sekundy) {
+        this.setState({
+          minutyL: minuty,
+          sekundyL: sekundy,
+          tick: minuty * 60 + sekundy
+        });
+      }
     }
   }
 
+  componentDidUpdate() {
+    const { minuty, sekundy, isCountdown } = this.props;
+    const { minutyL, sekundyL, tick } = this.state;
+    if (!isCountdown) {
+      if (minutyL != minuty || sekundyL != sekundy) {
+        this.setState({
+          minutyL: minuty,
+          sekundyL: sekundy,
+          tick: minuty * 60 + sekundy
+        });
+      }
+    } else {
+      var x = this;
+      if (tick == 0) {
+        let path = "../src/sound/airhorn.mp3";
+        const audio = new Audio(path);
+        audio.play();
+      }
+      setTimeout(function() {
+        if (tick > 0) {
+          x.setState({
+            tick: tick - 1
+          });
+        }
+      }, 1000);
+    }
+  }
+
+  public formatTime = (time: number) => {
+    let seconds = time % 60;
+    let minutes = Math.floor(time / 60);
+    const minutesString =
+      minutes.toString().length === 1 ? "0" + minutes : minutes;
+    const secondsString =
+      seconds.toString().length === 1 ? "0" + seconds : seconds;
+    return minutesString + ":" + secondsString;
+  };
+
+  public startCountdown = () => {
+    const { ustawisCountDown } = this.props;
+    if (ustawisCountDown) {
+      ustawisCountDown(true);
+    }
+  };
+
+  public stopCountdown = () => {
+    const { ustawisCountDown } = this.props;
+    if (ustawisCountDown) {
+      ustawisCountDown(false);
+    }
+  };
+
+  public resetCountdown = () => {
+    const { minuty, sekundy } = this.props;
+    const { tick } = this.state;
+    this.setState({
+      tick: minuty * 60 + sekundy
+    });
+  };
+
+  public getColor = () => {
+    const { minuty, sekundy } = this.props;
+    const { tick } = this.state;
+    const czas = minuty * 60 + sekundy;
+    const procent = tick / czas;
+    const green = 255 * procent;
+    const red = 255 - green;
+
+    return (
+      "rgb(" +
+      parseInt(red.toString(), 10) +
+      "," +
+      parseInt(green.toString(), 10) +
+      ",0)"
+    );
+  };
+
   render() {
-    let path = "../src/sound/airhorn.mp3";
-    const audio = new Audio(path);
-    const seconds = "00";
-    const { minutyL, sekundyL } = this.state;
+    const { isCountdown } = this.props;
+    const { tick } = this.state;
+    let style = {
+      color: this.getColor()
+    };
 
     return (
       <Container>
-        <div className="ClockNumbers ClockNumbersBlue">
-          {minutyL}:{sekundyL < 10 ? `0${sekundyL}` : sekundyL}
+        <div className="ClockNumbers" style={style}>
+          {this.formatTime(tick)}
         </div>
         <Row>
           <Col className="ClockColumnCentered">
-            <ReactNoSleep>
+            {/* <ReactNoSleep>
               {({ isOn, enable, disable }) => (
-                <Button onClick={isOn ? disable : enable} inverted>
-                  Start
-                </Button>
+                
               )}
-            </ReactNoSleep>
+            </ReactNoSleep> */}
+            <Button
+              onClick={isCountdown ? this.stopCountdown : this.startCountdown}
+              inverted
+            >
+              {isCountdown ? "Stop" : "Start"}
+            </Button>
           </Col>
           <Col className="ClockColumnCentered">
-            <Button disabled inverted>
+            <Button
+              onClick={this.resetCountdown}
+              disabled={isCountdown}
+              inverted
+            >
               Reset
             </Button>
           </Col>
@@ -86,11 +179,13 @@ const container = compose<Props, ComponentProps>(
     (_state: SettingsState, _props: any) => {
       return {
         minuty: _state.minuty,
-        sekundy: _state.sekundy
+        sekundy: _state.sekundy,
+        isCooldown: _state.isCooldown,
+        isCountdown: _state.isCountdown
       };
     },
     {
-      ustawMinuty
+      ustawisCountDown
     }
   )
 )(Clock);
