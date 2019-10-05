@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "73c0038e7ba7422c212928ae2aa777e0",
+    "revision": "38edbba8cefeed1ae09961986fb7368c",
     "url": "/gld/index.html"
   },
   {
@@ -8,15 +8,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/gld/static/css/2.266e55a5.chunk.css"
   },
   {
-    "revision": "5951f5a93890a6cb61ad",
-    "url": "/gld/static/css/main.adb51471.chunk.css"
+    "revision": "38aeb137047151ecf971",
+    "url": "/gld/static/css/main.ad944f58.chunk.css"
   },
   {
     "revision": "79d7760924916b24b118",
     "url": "/gld/static/js/2.46667d00.chunk.js"
   },
   {
-    "revision": "5951f5a93890a6cb61ad",
+    "revision": "38aeb137047151ecf971",
     "url": "/gld/static/js/main.7bb7fb29.chunk.js"
   },
   {
@@ -32,8 +32,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/gld/static/media/logo_kolor.1bf82ca4.jpg"
   },
   {
-    "revision": "09a5137f36c209764fa590bf765cf4fa",
-    "url": "/gld/static/media/logo_tlo.09a5137f.jpg"
+    "revision": "2be217cbe1a63031fcb4fd592cfce715",
+    "url": "/gld/static/media/logo_tlo.2be217cb.jpg"
   },
   {
     "revision": "3f40f759711faee624da8545c4a35774",
