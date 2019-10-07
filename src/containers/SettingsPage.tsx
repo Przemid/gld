@@ -19,6 +19,8 @@ import {
 import { SettingsState } from "../reducers/settingsReducer";
 import { compose } from "recompose";
 import { Dropdown } from "semantic-ui-react";
+import ReactNoSleep from "react-no-sleep";
+import { Button, Segment } from "semantic-ui-react";
 
 interface ComponentProps {}
 
@@ -349,6 +351,15 @@ export class SettingsPage extends React.Component<Props, LocalProps> {
               onChange={this.ustawSoundPack}
               defaultValue={1}
             />
+          </Row>
+          <Row>
+            <ReactNoSleep>
+              {({ isOn, enable, disable }) => (
+                <Button onClick={isOn ? disable : enable} inverted>
+                  {isOn ? "ON" : "OFF"}
+                </Button>
+              )}
+            </ReactNoSleep>
           </Row>
         </Container>
       </div>

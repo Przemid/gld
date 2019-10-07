@@ -17,6 +17,8 @@ interface LocalProps {
   sekundyL: number;
   timeIsGrabbed: boolean;
   tick: number;
+  rundyL: number;
+  currentRound: number;
 }
 
 interface StateProps {
@@ -24,6 +26,12 @@ interface StateProps {
   sekundy: number;
   isCooldown: boolean;
   isCountdown: boolean;
+  rundy: number;
+  przerwa: number;
+  cooldown: number;
+  sygnalCoMinute: boolean;
+  soundPack: number;
+  czasDoStartu: number;
 }
 
 interface DispatchProps {
@@ -39,19 +47,22 @@ export class Clock extends React.Component<Props, LocalProps> {
       minutyL: 3,
       sekundyL: 10,
       timeIsGrabbed: false,
-      tick: 0
+      tick: 0,
+      rundyL: 3,
+      currentRound: 1
     };
   }
 
   componentDidMount() {
-    const { minuty, sekundy, isCountdown } = this.props;
+    const { minuty, sekundy, isCountdown, rundy } = this.props;
     const { minutyL, sekundyL } = this.state;
     if (!isCountdown) {
       if (minutyL != minuty || sekundyL != sekundy) {
         this.setState({
           minutyL: minuty,
           sekundyL: sekundy,
-          tick: minuty * 60 + sekundy
+          tick: minuty * 60 + sekundy,
+          rundyL: rundy
         });
       }
     }
@@ -135,8 +146,8 @@ export class Clock extends React.Component<Props, LocalProps> {
   };
 
   render() {
-    const { isCountdown } = this.props;
-    const { tick } = this.state;
+    const { isCountdown, rundy } = this.props;
+    const { tick, rundyL, currentRound } = this.state;
     let style = {
       color: this.getColor()
     };
@@ -160,6 +171,9 @@ export class Clock extends React.Component<Props, LocalProps> {
               {isCountdown ? "Stop" : "Start"}
             </Button>
           </Col>
+          <Col className="ClockColumnCentered ClockRounds" style={style}>
+            Runda {currentRound}/{rundy}
+          </Col>
           <Col className="ClockColumnCentered">
             <Button
               onClick={this.resetCountdown}
@@ -181,7 +195,13 @@ const container = compose<Props, ComponentProps>(
         minuty: _state.minuty,
         sekundy: _state.sekundy,
         isCooldown: _state.isCooldown,
-        isCountdown: _state.isCountdown
+        isCountdown: _state.isCountdown,
+        rundy: _state.rundy,
+        przerwa: _state.przerwa,
+        cooldown: _state.cooldown,
+        sygnalCoMinute: _state.sygnalCoMinute,
+        soundPack: _state.soundPack,
+        czasDoStartu: _state.czasDoStartu
       };
     },
     {
