@@ -42,8 +42,13 @@ class HomePage extends React.Component {
 
           <header className="App-header">
             <Container>
-              <Summary></Summary>
-              <Clock></Clock>
+              <Row>
+                <Summary></Summary>
+              </Row>
+              <Row>
+                <Clock></Clock>
+              </Row>
+
               <Row>
                 <Col className="App-footer">
                   <p className="G-logo" onClick={() => audio.play()}>
@@ -51,7 +56,7 @@ class HomePage extends React.Component {
                   </p>
                 </Col>
               </Row>
-            </Container>           
+            </Container>
           </header>
         </Sidebar>
       </div>

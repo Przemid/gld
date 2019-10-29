@@ -5,11 +5,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 75vh;
+  height: 73vh;
 }
 
 .ClockNumbersBlue {
-  color: rgb(225, 31, 37);
+  color: rgb(0, 204, 255);
 }
 
 .ClockColumnCentered {
@@ -20,7 +20,7 @@
 
 .ClockRounds {
   display: flex;
-  font-size: 4vw;
+  font-size: 3vw;
   font-weight: 650;
   flex-direction: column;
   align-items: center;

@@ -15,6 +15,8 @@ export interface SettingsState {
   clockColorGreen: number;
   isCountdown: boolean;
   isCooldown: boolean;
+  isStarting: boolean;
+  isPrzerwa: boolean;
   czasDoStartu: number;
 }
 
@@ -31,6 +33,8 @@ export const initialState: SettingsState = {
   clockColorGreen: 255,
   isCountdown: false,
   isCooldown: false,
+  isStarting: false,
+  isPrzerwa: false,
   czasDoStartu: 10
 };
 
@@ -107,6 +111,18 @@ export default function reducer(
       return {
         ...state,
         isCooldown: action.payload
+      };
+
+    case actionTypes.SETTINGS_USTAW_ISSTARTING:
+      return {
+        ...state,
+        isStarting: action.payload
+      };
+
+    case actionTypes.SETTINGS_USTAW_ISPRZERWA:
+      return {
+        ...state,
+        isPrzerwa: action.payload
       };
 
     case actionTypes.SETTINGS_USTAW_CZASDOSTARTU:

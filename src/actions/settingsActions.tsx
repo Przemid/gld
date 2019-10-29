@@ -81,3 +81,17 @@ export function ustawCzasDoStartu(payload: number): Action {
     payload
   };
 }
+
+export function ustawisStarting(payload: boolean): Action {
+  return {
+    type: actionTypes.SETTINGS_USTAW_ISSTARTING,
+    payload
+  };
+}
+
+export function ustawisPrzerwa(payload: boolean): Action {
+  return {
+    type: actionTypes.SETTINGS_USTAW_ISPRZERWA,
+    payload
+  };
+}
