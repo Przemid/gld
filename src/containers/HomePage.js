@@ -31,15 +31,10 @@ class HomePage extends React.Component {
           sidebar={<SettingsPage></SettingsPage>}
           open={this.state.sidebarOpen}
           onSetOpen={this.onSetSidebarOpen}
-          styles={{ sidebar: { background: "black" } }}
+          styles={{
+            sidebar: { background: "white" }
+          }}
         >
-          <img
-            src={settingsIcon}
-            alt="SettingsIcon"
-            onClick={() => this.onSetSidebarOpen(true)}
-            style={{ width: "40px", height: "40px" }}
-          />
-
           <header className="App-header">
             <Container>
               <Row>
@@ -58,6 +53,23 @@ class HomePage extends React.Component {
               </Row>
             </Container>
           </header>
+          <div
+            onClick={() => this.onSetSidebarOpen(true)}
+            style={{
+              color: "white"
+            }}
+          >
+            <img
+              src={settingsIcon}
+              alt="SettingsIcon"
+              style={{
+                width: "40px",
+                height: "40px",
+                position: "bottom"
+              }}
+            />
+            Ustawienia
+          </div>
         </Sidebar>
       </div>
     );

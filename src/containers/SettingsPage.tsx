@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../img/logo_kolor.jpg";
+import logo from "../img/logo_gf_white.jpg";
 import "../css/SettingsPage.css";
 
 import Container from "react-bootstrap/Container";
@@ -341,7 +341,7 @@ export class SettingsPage extends React.Component<Props, LocalProps> {
               defaultValue={"true"}
             />
           </Row>
-          <Row>SoundPack:</Row>
+          {/* <Row>SoundPack:</Row>
           <Row>
             <Dropdown
               placeholder="Wybierz trenera"
@@ -351,12 +351,12 @@ export class SettingsPage extends React.Component<Props, LocalProps> {
               onChange={this.ustawSoundPack}
               defaultValue={1}
             />
-          </Row>
+          </Row> */}
           <Row>
             <ReactNoSleep>
               {({ isOn, enable, disable }) => (
-                <Button onClick={isOn ? disable : enable} inverted>
-                  {isOn ? "ON" : "OFF"}
+                <Button onClick={isOn ? disable : enable}>
+                  {isOn ? "No Sleep On" : "No Sleep Off"}
                 </Button>
               )}
             </ReactNoSleep>

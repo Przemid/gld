@@ -13,6 +13,7 @@ import Container from "react-bootstrap/Container";
 import { Button, Segment } from "semantic-ui-react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import ClockDigits from "../containers/ClockDigits";
 
 interface ComponentProps {}
 
@@ -113,7 +114,7 @@ export class Clock extends React.Component<Props, LocalProps> {
       if (tick == 0) {
         this.stopStarting();
         this.startCountdown();
-        this.setState({          
+        this.setState({
           tick: minuty * 60 + sekundy
         });
       }
@@ -140,14 +141,12 @@ export class Clock extends React.Component<Props, LocalProps> {
     }
   }
 
-  public formatTime = (time: number) => {
-    let seconds = time % 60;
-    let minutes = Math.floor(time / 60);
-    const minutesString =
-      minutes.toString().length === 1 ? "0" + minutes : minutes;
-    const secondsString =
-      seconds.toString().length === 1 ? "0" + seconds : seconds;
-    return minutesString + ":" + secondsString;
+  public getSeconds = (time: number) => {
+    return time % 60;
+  };
+
+  public getMinutes = (time: number) => {
+    return Math.floor(time / 60);
   };
 
   public startCountdown = () => {
@@ -230,8 +229,6 @@ export class Clock extends React.Component<Props, LocalProps> {
     const { ustawisStarting, isCountdown, isStarting } = this.props;
     const { tick } = this.state;
 
-    
-
     if (!isStarting) {
       if (ustawisStarting) {
         ustawisStarting(true);
@@ -259,9 +256,12 @@ export class Clock extends React.Component<Props, LocalProps> {
 
     return (
       <Container>
-        <div className="ClockNumbers" style={style}>
-          {this.formatTime(tick)}
-        </div>
+        <ClockDigits
+          minutyL={this.getMinutes(tick)}
+          sekundyL={this.getSeconds(tick)}
+          colorS={this.getColor()}
+        ></ClockDigits>
+
         <Row>
           <Col className="ClockColumnCentered">
             <Button onClick={this.startButton} inverted>
